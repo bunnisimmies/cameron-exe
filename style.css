@@ -1,0 +1,1513 @@
+
+/* ==========================================
+   boyfriend os 98 ♡
+   ========================================== */
+
+:root {
+  --pink: #f7c8df;
+  --light-pink: #ffe8f3;
+  --rose: #b875a0;
+  --dark-rose: #844d74;
+  --cream: #fff8fc;
+  --purple: #d9b9e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "VT323", monospace;
+  color: var(--dark-rose);
+  text-transform: lowercase;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px dashed #844d74;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   desktop
+   ========================================== */
+
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      #fff5c9 0 3%,
+      transparent 9%
+    ),
+    linear-gradient(
+      180deg,
+      #d8b9ec 0%,
+      #f5c5df 55%,
+      #ffe5ed 100%
+    );
+}
+
+body:not(.logged-in) .desktop {
+  visibility: hidden;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(white 2px, transparent 3px),
+    radial-gradient(#fff5dc 2px, transparent 3px);
+
+  background-size: 95px 95px, 137px 137px;
+  background-position: 15px 20px, 55px 65px;
+
+  opacity: 0.75;
+  animation: twinkle 3s infinite alternate;
+}
+
+.moon {
+  position: absolute;
+  right: 13%;
+  top: 9%;
+  font-size: 90px;
+  color: #fff4ce;
+  text-shadow: 0 0 25px #fff3d5;
+  pointer-events: none;
+}
+
+/* ==========================================
+   desktop icons
+   ========================================== */
+
+.desktop-icons {
+  position: absolute;
+  z-index: 2;
+
+  top: 20px;
+  left: 16px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  gap: 10px;
+  height: calc(100% - 85px);
+}
+
+.desktop-icon {
+  width: 110px;
+  padding: 6px 4px;
+
+  border: 1px solid transparent;
+  background: transparent;
+  color: #713d68;
+
+  text-align: center;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.desktop-icon:hover {
+  background: #ffffff55;
+  border: 1px dotted white;
+}
+
+.pixel-icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin: 0 auto 7px;
+
+  filter: drop-shadow(2px 3px 0 #a66f9655);
+  transition: transform 0.2s ease;
+}
+
+.desktop-icon:hover .pixel-icon {
+  transform: translateY(-5px) scale(1.08);
+}
+
+.window-pixel-icon {
+  display: block;
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin: 8px auto 16px;
+
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   welcome
+   ========================================== */
+
+.welcome {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  width: min(80%, 650px);
+  pointer-events: none;
+}
+
+.welcome-heart {
+  font-size: 65px;
+  color: white;
+  text-shadow: 3px 3px #bf85ae;
+}
+
+.welcome h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(16px, 3vw, 32px);
+  color: white;
+  line-height: 1.7;
+  text-shadow: 4px 4px #ae76a6;
+}
+
+.welcome p {
+  font-size: 28px;
+}
+
+.welcome-small {
+  font-size: 20px;
+}
+
+/* ==========================================
+   application windows
+   ========================================== */
+
+.window {
+  position: absolute;
+  z-index: 10;
+
+  width: min(420px, calc(100vw - 24px));
+  max-height: calc(100dvh - 65px);
+  overflow: auto;
+
+  background: var(--light-pink);
+
+  border: 3px solid;
+  border-color: white #946789 #946789 white;
+
+  box-shadow:
+    2px 2px 0 #6c4968,
+    6px 6px 0 #754c7140;
+}
+
+.main-window,
+.small-window {
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.message-window {
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(520px, calc(100vw - 24px));
+}
+
+.error-window {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, calc(100vw - 24px));
+}
+
+.title-bar {
+  background: linear-gradient(90deg, #a96899, #e8a9c9);
+  color: white;
+
+  padding: 7px 9px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 20px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.title-bar:active {
+  cursor: grabbing;
+}
+
+.title-bar span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.close-btn,
+.bunny-dialogue-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+
+  background: #ffe0ef;
+  border: 2px solid white;
+  color: #844d74;
+
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.window-body {
+  padding: 22px;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.window-body h2,
+.game-content h2 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #a05e89;
+}
+
+.centered {
+  text-align: center;
+}
+
+.pixel-sparkles {
+  font-size: 32px;
+  color: #d48eb9;
+}
+
+.signature {
+  text-align: right;
+}
+
+.message-body p {
+  margin-bottom: 18px;
+}
+
+/* ==========================================
+   buttons
+   ========================================== */
+
+.win-button,
+.start-button {
+  background: #f6c5df;
+
+  border: 3px solid;
+  border-color: white #996d90 #996d90 white;
+
+  box-shadow: 1px 1px #78516f;
+  color: #794568;
+
+  padding: 10px 14px;
+  font-size: 22px;
+}
+
+.win-button:hover,
+.start-button:hover {
+  background: #ffe2ef;
+}
+
+.win-button:active,
+.start-button:active {
+  border-color: #996d90 white white #996d90;
+  transform: translate(1px, 1px);
+}
+
+/* ==========================================
+   distance
+   ========================================== */
+
+.distance-status {
+  background: #fff7fc;
+  border: 2px inset #c58eaf;
+  padding: 12px;
+  margin: 18px 0;
+}
+
+.distance-status p {
+  margin: 8px 0;
+}
+
+.connection-bar {
+  height: 20px;
+  border: 2px inset #c58eaf;
+  background: white;
+  padding: 2px;
+}
+
+.connection-fill {
+  width: 100%;
+  height: 100%;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #d58db7 0 12px,
+    #f4c3df 12px 15px
+  );
+}
+
+#hug-message {
+  color: #a05e89;
+}
+
+/* ==========================================
+   heart explosions
+   ========================================== */
+
+#heart-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.flying-heart {
+  position: absolute;
+  color: #e879b0;
+  animation: heart-explode 1.8s ease-out forwards;
+}
+
+@keyframes heart-explode {
+  from {
+    transform: translate(0, 0) scale(0.3);
+    opacity: 1;
+  }
+
+  to {
+    transform:
+      translate(var(--x), var(--y))
+      rotate(var(--rotation))
+      scale(1.4);
+
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   taskbar
+   ========================================== */
+
+.taskbar {
+  position: absolute;
+  z-index: 1000;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 48px;
+  background: #eab7d3;
+  border-top: 3px solid white;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px;
+}
+
+.start-button {
+  padding: 3px 12px;
+  font-size: 23px;
+}
+
+.taskbar-label {
+  flex: 1;
+  font-size: 22px;
+}
+
+.taskbar-clock {
+  border: 2px inset #c58eaf;
+  padding: 4px 10px;
+  font-size: 20px;
+}
+
+/* ==========================================
+   start menu
+   ========================================== */
+
+.start-menu {
+  position: absolute;
+  bottom: 48px;
+  left: 5px;
+
+  width: min(260px, calc(100vw - 10px));
+  z-index: 2000;
+
+  background: #ffe8f3;
+
+  border: 3px solid;
+  border-color: white #946789 #946789 white;
+
+  box-shadow: 3px 3px 0 #6c4968;
+  padding: 5px;
+}
+
+.start-menu-title {
+  background: linear-gradient(90deg, #a96899, #e8a9c9);
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.start-menu button {
+  display: block;
+  width: 100%;
+
+  border: none;
+  background: transparent;
+  color: #844d74;
+
+  font-size: 23px;
+  text-align: left;
+  padding: 10px;
+}
+
+.start-menu button:hover {
+  background: #eeb8d7;
+}
+
+/* ==========================================
+   bunny cursor
+   ========================================== */
+
+@media (pointer: fine) {
+  .desktop,
+  .desktop *,
+  .login-screen,
+  .login-screen * {
+    cursor: url("icons/bunny.svg") 16 8, auto;
+  }
+}
+
+.bunny-trail {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+
+  font-family: "Press Start 2P", monospace;
+  color: #e879b0;
+  font-size: 12px;
+
+  animation: bunny-trail-fade 0.65s ease-out forwards;
+}
+
+@keyframes bunny-trail-fade {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -85%) scale(0.4);
+  }
+}
+
+/* ==========================================
+   login
+   ========================================== */
+
+.login-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+
+  display: grid;
+  place-items: center;
+  padding: 18px;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      #fff8df 0,
+      transparent 18%
+    ),
+    linear-gradient(
+      145deg,
+      #d9b9e8,
+      #f7c8df 65%,
+      #ffe8f3
+    );
+}
+
+.login-window {
+  width: min(430px, 100%);
+  background: #ffe8f3;
+
+  border: 3px solid;
+  border-color: white #946789 #946789 white;
+
+  box-shadow: 6px 6px 0 #8e658c70;
+  animation: login-appear 0.5s ease-out;
+}
+
+.login-titlebar {
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #a96899, #e8a9c9);
+  color: white;
+  font-size: 23px;
+}
+
+.login-content {
+  padding: 28px 22px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.login-content h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.login-bunny-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+
+  object-fit: contain;
+  image-rendering: pixelated;
+
+  margin: 0 auto 15px;
+  animation: bunny-bob 2s ease-in-out infinite;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin-top: 24px;
+}
+
+#login-password {
+  width: min(250px, 100%);
+  padding: 10px;
+
+  background: #fff9fd;
+  border: 2px inset #c58eaf;
+  color: #844d74;
+
+  font-family: "VT323", monospace;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+#login-feedback {
+  min-height: 24px;
+  color: #ae5485;
+}
+
+.hint-area {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.hint-button {
+  background: #fff7fc;
+  border: 2px dashed #c58eaf;
+  color: #a05e89;
+
+  padding: 9px 15px;
+  font-size: 22px;
+
+  animation: hint-bounce 1.8s ease-in-out infinite;
+}
+
+.hint-button:hover {
+  background: #f6c5df;
+}
+
+#login-hint {
+  padding: 12px;
+  background: #fff7fc;
+  border: 1px dashed #d58db7;
+  color: #a05e89;
+}
+
+.login-screen.login-success {
+  animation: login-swipe-up 1.2s
+    cubic-bezier(0.76, 0, 0.24, 1) forwards;
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   bunni companion
+   ========================================== */
+
+.bunny-companion {
+  position: absolute;
+  z-index: 900;
+
+  right: 26px;
+  bottom: 55px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bunny-button {
+  border: none;
+  padding: 0;
+  background: transparent;
+
+  animation: bunny-bob 2.5s ease-in-out infinite;
+}
+
+.bunny-button img {
+  display: block;
+  width: 96px;
+  height: 96px;
+
+  object-fit: contain;
+  image-rendering: pixelated;
+
+  filter: drop-shadow(2px 4px 0 #a66f9655);
+}
+
+/* ==========================================
+   bunni dialogue
+   ========================================== */
+
+.bunny-dialogue {
+  position: absolute;
+  right: 0;
+  bottom: 110px;
+
+  width: 330px;
+  max-width: calc(100vw - 24px);
+  max-height: min(480px, calc(100dvh - 180px));
+  overflow-y: auto;
+
+  background: #fff2fa;
+  border: 4px solid #8e5a83;
+
+  box-shadow:
+    inset 3px 3px 0 white,
+    inset -3px -3px 0 #e3a7c9,
+    6px 6px 0 #8e5a8355;
+
+  color: #844d74;
+  text-align: left;
+
+  animation: bunny-dialogue-pop 0.25s steps(4, end);
+}
+
+.bunny-dialogue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #b875a0;
+  color: white;
+  padding: 7px 10px;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+}
+
+.bunny-dialogue-content {
+  padding: 15px;
+  font-size: 21px;
+}
+
+.bunny-name {
+  color: #b875a0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+
+#bunny-dialogue-text {
+  min-height: 55px;
+  margin: 0 0 15px;
+  line-height: 1.2;
+}
+
+.bunny-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bunny-option,
+.bunny-back {
+  width: 100%;
+  padding: 10px;
+
+  background: #ffe3f0;
+  color: #844d74;
+  border: 2px solid #c58eaf;
+
+  font-size: 20px;
+  text-align: left;
+}
+
+.bunny-option:hover,
+.bunny-back:hover {
+  background: #f5bad9;
+  border-color: #a96899;
+}
+
+/* ==========================================
+   heart catching game
+   ========================================== */
+
+.game-window {
+  top: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(530px, calc(100vw - 20px));
+  overflow: hidden;
+}
+
+.game-content {
+  padding: 14px;
+  text-align: center;
+}
+
+.game-content h2 {
+  margin: 5px 0;
+}
+
+.game-description {
+  font-size: 21px;
+  margin: 6px 0 12px;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 9px 12px;
+  background: #fff7fc;
+  border: 2px inset #c58eaf;
+
+  font-size: 24px;
+}
+
+.game-area {
+  position: relative;
+  width: 100%;
+
+  height: min(340px, 46dvh);
+  min-height: 220px;
+
+  overflow: hidden;
+  margin-top: 10px;
+  border: 4px solid #a96899;
+
+  background:
+    radial-gradient(circle at 20% 25%, #fff 1px, transparent 3px),
+    radial-gradient(circle at 75% 50%, #fff 1px, transparent 3px),
+    linear-gradient(180deg, #ead1f4, #ffe1ef);
+
+  touch-action: none;
+  user-select: none;
+}
+
+.game-area::after {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+  background: #b875a0;
+}
+
+.game-bunny {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+
+  width: 66px;
+  height: 66px;
+
+  object-fit: contain;
+  image-rendering: pixelated;
+
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.game-heart {
+  position: absolute;
+  top: 0;
+
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 23px;
+
+  color: #e27eae;
+  text-shadow: 2px 2px #fff;
+
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+.game-heart.golden {
+  color: #e6af35;
+  text-shadow: 1px 1px #fff6c6;
+}
+
+.game-overlay {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  padding: 20px;
+  background: #fff1faeb;
+}
+
+.game-overlay h3 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.game-overlay p {
+  font-size: 23px;
+  margin: 0;
+}
+
+.game-instructions {
+  margin: 10px 0 2px;
+  font-size: 19px;
+}
+
+/* ==========================================
+   NEW: mini music player ♡
+   ========================================== */
+
+.music-player {
+  position: absolute;
+  z-index: 850;
+
+  left: 145px;
+  bottom: 61px;
+
+  width: 310px;
+  max-width: calc(100vw - 24px);
+
+  background: #fff0f8;
+
+  border: 3px solid;
+  border-color: white #946789 #946789 white;
+
+  box-shadow:
+    2px 2px 0 #6c4968,
+    5px 5px 0 #754c7133;
+
+  animation: music-appear 0.4s steps(5, end);
+}
+
+.music-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(90deg, #a96899, #e8a9c9);
+  color: white;
+
+  padding: 6px 8px;
+  font-size: 20px;
+}
+
+.music-minimize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 23px;
+  padding: 0;
+
+  background: #ffe0ef;
+  color: #844d74;
+  border: 2px solid white;
+
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.music-content {
+  padding: 12px;
+}
+
+.music-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.music-disc {
+  flex-shrink: 0;
+
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      #c58eaf 0 3px,
+      #eab9d5 4px 6px,
+      #9d6895 7px 9px
+    );
+
+  border: 3px solid #844d74;
+  box-shadow: 2px 2px 0 #d2a0c0;
+}
+
+.music-disc.playing {
+  animation: music-spin 3s linear infinite;
+}
+
+.music-disc-center {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff3fb;
+  border: 3px solid #844d74;
+
+  color: #b875a0;
+  font-size: 18px;
+}
+
+.music-track-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.music-now-playing {
+  color: #b875a0;
+  font-size: 17px;
+}
+
+.music-song-title {
+  font-family: "Press Start 2P", monospace;
+  color: #844d74;
+  font-size: 10px;
+  line-height: 1.8;
+  margin: 5px 0;
+}
+
+.music-artist {
+  color: #a96899;
+  font-size: 20px;
+}
+
+.music-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 14px;
+  color: #844d74;
+  font-size: 17px;
+}
+
+#music-progress {
+  flex: 1;
+  min-width: 0;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.music-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 32px;
+  padding: 0;
+
+  background: #f6c5df;
+  color: #844d74;
+
+  border: 2px solid;
+  border-color: white #996d90 #996d90 white;
+
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.music-control-button:hover {
+  background: #ffe0ef;
+}
+
+.music-control-button.active {
+  background: #e8add0;
+}
+
+.music-play-button {
+  width: 45px;
+  height: 37px;
+  font-size: 21px;
+}
+
+.music-volume-icon {
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+#music-volume {
+  width: 90px;
+  min-width: 0;
+}
+
+.music-player input[type="range"] {
+  height: 8px;
+  accent-color: #b875a0;
+  cursor: pointer;
+}
+
+.music-status {
+  margin: 10px 0 0;
+  color: #b875a0;
+  text-align: center;
+  font-size: 17px;
+}
+
+.music-mini-button {
+  position: absolute;
+  z-index: 850;
+
+  left: 145px;
+  bottom: 61px;
+
+  padding: 8px 14px;
+
+  background: #ffe8f3;
+  color: #844d74;
+
+  border: 3px solid;
+  border-color: white #946789 #946789 white;
+
+  box-shadow: 2px 2px 0 #6c4968;
+  font-size: 22px;
+}
+
+/* ==========================================
+   animations
+   ========================================== */
+
+@keyframes twinkle {
+  from { opacity: 0.35; }
+  to { opacity: 0.9; }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes bunny-bob {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes login-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes login-swipe-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes hint-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes bunny-dialogue-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes music-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes music-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================
+   mobile
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .desktop-icons {
+    top: 10px;
+    left: 8px;
+    gap: 7px;
+  }
+
+  .desktop-icon {
+    width: 85px;
+    font-size: 16px;
+  }
+
+  .pixel-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .welcome {
+    top: 38%;
+    left: 63%;
+    width: 65%;
+  }
+
+  .welcome h1 {
+    font-size: 13px;
+  }
+
+  .welcome p {
+    font-size: 19px;
+  }
+
+  .window-body {
+    padding: 15px;
+    font-size: 21px;
+  }
+
+  .title-bar {
+    font-size: 17px;
+  }
+
+  .bunny-companion {
+    right: 8px;
+    bottom: 52px;
+  }
+
+  .bunny-button img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .bunny-dialogue {
+    width: min(310px, calc(100vw - 24px));
+    bottom: 85px;
+  }
+
+  .login-content {
+    padding: 22px 14px;
+  }
+
+  .login-content h1 {
+    font-size: 11px;
+  }
+
+  .game-window {
+    top: 6%;
+  }
+
+  .game-content {
+    padding: 8px;
+  }
+
+  .game-area {
+    height: min(310px, 44dvh);
+  }
+
+  .music-player {
+    left: 10px;
+    bottom: 58px;
+    width: min(290px, calc(100vw - 95px));
+  }
+
+  .music-mini-button {
+    left: 10px;
+    bottom: 58px;
+  }
+
+  .music-disc {
+    width: 53px;
+    height: 53px;
+  }
+
+  .music-content {
+    padding: 9px;
+  }
+
+  #music-volume {
+    width: 65px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stars,
+  .window-pixel-icon,
+  .bunny-button,
+  .login-bunny-image,
+  .hint-button,
+  .music-disc {
+    animation: none !important;
+  }
+}
+
+/* ♡ music player — top right ♡ */
+
+.music-player {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+
+/* minimized music player */
+
+.music-mini-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+
+/* mobile positioning */
+
+@media (max-width: 600px) {
+  .music-player {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: min(290px, calc(100vw - 24px));
+  }
+
+  .music-mini-button {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    left: auto;
+    transform: none;
+  }
+}
+
+
+/* ♡ bouncy desktop icons ♡ */
+
+.desktop-icon .pixel-icon {
+  animation: icon-bounce 2.4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* each icon bounces at a slightly different time */
+
+.desktop-icon:nth-child(1) .pixel-icon {
+  animation-delay: 0s;
+}
+
+.desktop-icon:nth-child(2) .pixel-icon {
+  animation-delay: 0.3s;
+}
+
+.desktop-icon:nth-child(3) .pixel-icon {
+  animation-delay: 0.6s;
+}
+
+.desktop-icon:nth-child(4) .pixel-icon {
+  animation-delay: 0.9s;
+}
+
+.desktop-icon:nth-child(5) .pixel-icon {
+  animation-delay: 1.2s;
+}
+
+.desktop-icon:nth-child(6) .pixel-icon {
+  animation-delay: 1.5s;
+}
+
+.desktop-icon:nth-child(7) .pixel-icon {
+  animation-delay: 1.8s;
+}
+
+@keyframes icon-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  15% {
+    transform: translateY(-12px) scale(1.05);
+  }
+
+  25% {
+    transform: translateY(0) scale(0.95, 1.05);
+  }
+
+  35% {
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  45% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* extra little hop when hovered */
+
+.desktop-icon:hover .pixel-icon {
+  animation: icon-hover-bounce 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes icon-hover-bounce {
+  from {
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    transform: translateY(-9px) scale(1.1);
+  }
+}
+
+/* respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop-icon .pixel-icon {
+    animation: none;
+  }
+}

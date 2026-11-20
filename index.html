@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9a8ca">
+
+  <title>cameron.exe ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =====================================
+       login screen ♡
+  ====================================== -->
+
+  <div class="login-screen" id="login-screen">
+    <div class="login-window">
+
+      <div class="login-titlebar">
+        ♡ boyfriend os 98
+      </div>
+
+      <div class="login-content">
+
+        <img
+          src="icons/bunny-awake.png"
+          class="login-bunny-image"
+          alt="a little pixel bunny"
+        >
+
+        <h1>welcome, cameron ♡</h1>
+
+        <p>this little universe is waiting for you.</p>
+
+        <form id="login-form">
+
+          <label for="login-password">
+            enter your secret password:
+          </label>
+
+          <input
+            type="password"
+            id="login-password"
+            placeholder="••••••"
+            autocomplete="off"
+            required
+          >
+
+          <button type="submit" class="win-button">
+            login ♡
+          </button>
+
+        </form>
+
+        <p id="login-feedback" aria-live="polite"></p>
+
+        <div class="hint-area">
+
+          <button
+            type="button"
+            id="hint-button"
+            class="hint-button"
+            hidden
+          >
+            need a little hint? ♡
+          </button>
+
+          <p id="login-hint" hidden>
+            psst... think of a date that means something to us ♡
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       desktop ♡
+  ====================================== -->
+
+  <main class="desktop">
+
+    <div class="stars" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true">☾</div>
+
+    <!-- desktop icons -->
+
+    <div class="desktop-icons">
+
+      <button class="desktop-icon" data-open="computer">
+        <img src="icons/computer.png" class="pixel-icon" alt="">
+        <span>cam's computer</span>
+      </button>
+
+      <button class="desktop-icon" data-open="letter">
+        <img src="icons/letter.png" class="pixel-icon" alt="">
+        <span>open me</span>
+      </button>
+
+      <button class="desktop-icon" data-open="distance">
+        <img src="icons/distance.png" class="pixel-icon" alt="">
+        <span>miles apart</span>
+      </button>
+
+      <button class="desktop-icon" data-open="reasons">
+        <img src="icons/reasons.png" class="pixel-icon" alt="">
+        <span>reasons why ezra loves me</span>
+      </button>
+
+      <button class="desktop-icon" data-open="surprise">
+        <img src="icons/surprise.png" class="pixel-icon" alt="">
+        <span>ezra's little surprise</span>
+      </button>
+
+      <button class="desktop-icon" data-open="game">
+        <img src="icons/game.png" class="pixel-icon" alt="">
+        <span>catch my love</span>
+      </button>
+
+      <button class="desktop-icon" data-open="trash">
+        <img src="icons/trash.png" class="pixel-icon" alt="">
+        <span>bin</span>
+      </button>
+
+    </div>
+
+    <!-- welcome text -->
+
+    <div class="welcome">
+      <span class="welcome-heart">♡</span>
+
+      <h1>welcome back, cameron</h1>
+
+      <p>no matter how many miles apart..</p>
+
+      <span class="welcome-small">
+        you'll always be ezra's favourite place to call home.
+      </span>
+    </div>
+
+    <!-- =====================================
+         letter application
+    ====================================== -->
+
+    <section class="window main-window" id="letter" hidden>
+
+      <div class="title-bar">
+        <span>♡ open_me.exe</span>
+
+        <button
+          class="close-btn"
+          data-close="letter"
+          aria-label="close letter"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <div class="pixel-sparkles">✧ ♡ ✧</div>
+
+        <img
+          class="window-pixel-icon"
+          src="icons/letter.png"
+          alt=""
+        >
+
+        <h2>you've got mail!</h2>
+
+        <p>from: ezra</p>
+        <p>to: cameron</p>
+
+        <button class="win-button" id="read-letter">
+          open my letter ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         actual love letter
+    ====================================== -->
+
+    <section class="window message-window" id="message" hidden>
+
+      <div class="title-bar">
+        <span>♡ a_message_for_you.txt</span>
+
+        <button
+          class="close-btn"
+          data-close="message"
+          aria-label="close message"
+        >×</button>
+      </div>
+
+      <div class="window-body message-body">
+
+        <h2>hi cameron ♡</h2>
+
+        <p>happy monthsary, my sweet baby!</p>
+
+        <p>
+          first month with you, and somehow you still
+          manage to make my heart feel just as excited
+          as it did at the beginning.
+        </p>
+
+        <p>
+          even though there's distance between us,
+          you've become such a beautiful part of
+          my everyday life.
+        </p>
+
+        <p>
+          i might not be able to hold your hand whenever
+          i want to, but i hope you always feel how
+          much i love you.
+        </p>
+
+        <p>
+          if i could choose anyone in every universe,
+          every lifetime, and every possible world,
+          i'd still choose you. every single time.
+        </p>
+
+        <p>
+          thank you for being you, for making me smile,
+          and for letting me love you.
+        </p>
+
+        <p>
+          here's to us, and to all the beautiful
+          things waiting for us in the future.
+        </p>
+
+        <p>i love you, always. ♡</p>
+
+        <p class="signature">— ezra</p>
+
+        <button class="win-button" id="heart-button">
+          click for a surprise! ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         distance application
+    ====================================== -->
+
+    <section class="window small-window" id="distance" hidden>
+
+      <div class="title-bar">
+        <span>♡ distance_means_nothing.exe</span>
+
+        <button
+          class="close-btn"
+          data-close="distance"
+          aria-label="close distance"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <img
+          class="window-pixel-icon"
+          src="icons/distance.png"
+          alt=""
+        >
+
+        <h2>miles apart, hearts together ♡</h2>
+
+        <p>
+          even when i can't hold your hand,
+          you're still my favourite person to come home to.
+        </p>
+
+        <div class="distance-status">
+
+          <p>love connection</p>
+
+          <div class="connection-bar">
+            <div class="connection-fill"></div>
+          </div>
+
+          <p>100% connected ♡</p>
+
+        </div>
+
+        <p>
+          no amount of distance could ever change
+          how much i love you.
+        </p>
+
+        <button class="win-button" id="hug-button">
+          send virtual hug ♡
+        </button>
+
+        <p id="hug-message" aria-live="polite"></p>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         reasons application
+    ====================================== -->
+
+    <section class="window small-window" id="reasons" hidden>
+
+      <div class="title-bar">
+        <span>♡ reasons.exe</span>
+
+        <button
+          class="close-btn"
+          data-close="reasons"
+          aria-label="close reasons"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <img
+          class="window-pixel-icon"
+          src="icons/reasons.png"
+          alt=""
+        >
+
+        <h2>reasons i love you ♡</h2>
+
+        <p id="reason-text">
+          click below to find out!
+        </p>
+
+        <button class="win-button" id="next-reason">
+          another reason ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         surprise application
+    ====================================== -->
+
+    <section class="window small-window" id="surprise" hidden>
+
+      <div class="title-bar">
+        <span>♡ surprise.exe</span>
+
+        <button
+          class="close-btn"
+          data-close="surprise"
+          aria-label="close surprise"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <img
+          class="window-pixel-icon"
+          src="icons/surprise.png"
+          alt=""
+        >
+
+        <h2>one last thing...</h2>
+
+        <p>
+          no matter how many times the universe resets,
+          i'd always find my way back to you.
+        </p>
+
+        <p>happy monthsary, cameron ♡</p>
+
+        <button class="win-button" id="final-surprise">
+          i love you ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         computer application
+    ====================================== -->
+
+    <section class="window small-window" id="computer" hidden>
+
+      <div class="title-bar">
+        <span>♡ cam's computer</span>
+
+        <button
+          class="close-btn"
+          data-close="computer"
+          aria-label="close computer"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <img
+          class="window-pixel-icon"
+          src="icons/computer.png"
+          alt=""
+        >
+
+        <h2>boyfriend os 98 ♡</h2>
+
+        <p>registered to: cameron</p>
+        <p>installed by: ezra</p>
+        <p>love storage: infinite</p>
+        <p>status: forever loved ♡</p>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         recycle bin
+    ====================================== -->
+
+    <section class="window small-window" id="trash" hidden>
+
+      <div class="title-bar">
+        <span>♡ bin</span>
+
+        <button
+          class="close-btn"
+          data-close="trash"
+          aria-label="close bin"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <img
+          class="window-pixel-icon"
+          src="icons/trash.png"
+          alt=""
+        >
+
+        <h2>error!</h2>
+
+        <p>cannot delete boyfriend.</p>
+        <p>cameron is permanently installed. ♡</p>
+
+        <button class="win-button" data-close="trash">
+          ok ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         love error
+    ====================================== -->
+
+    <section class="window error-window" id="error" hidden>
+
+      <div class="title-bar">
+        <span>♡ love.exe - error</span>
+
+        <button
+          class="close-btn"
+          data-close="error"
+          aria-label="close error"
+        >×</button>
+      </div>
+
+      <div class="window-body centered">
+
+        <h2>error 143</h2>
+
+        <p>too much love detected!</p>
+
+        <button class="win-button" data-close="error">
+          ok ♡
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         catch my love game
+    ====================================== -->
+
+    <section class="window game-window" id="game" hidden>
+
+      <div class="title-bar">
+        <span>♡ catch_my_love.exe</span>
+
+        <button
+          class="close-btn"
+          data-close="game"
+          aria-label="close game"
+        >×</button>
+      </div>
+
+      <div class="game-content">
+
+        <h2>♡ catch my love ♡</h2>
+
+        <p class="game-description">
+          help bunni catch all of ezra's love!
+        </p>
+
+        <div class="game-stats">
+          <span>score: <b id="game-score">0</b></span>
+          <span>time: <b id="game-time">30</b>s</span>
+        </div>
+
+        <div
+          id="game-area"
+          class="game-area"
+          aria-label="heart catching game"
+        >
+
+          <div class="game-overlay" id="game-overlay">
+
+            <h3 id="game-overlay-title">
+              ready, cameron? ♡
+            </h3>
+
+            <p id="game-overlay-message">
+              move bunni with your mouse, finger,
+              or arrow keys to catch falling hearts!
+            </p>
+
+            <button class="win-button" id="game-start">
+              start game ♡
+            </button>
+
+          </div>
+
+          <img
+            src="icons/bunny-awake.png"
+            id="game-bunny"
+            class="game-bunny"
+            alt="bunni catching hearts"
+            draggable="false"
+          >
+
+        </div>
+
+        <p class="game-instructions">
+          pink heart +10 ♡ golden heart +50 ✦
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         NEW: mini music player ♡
+    ====================================== -->
+
+    <div class="music-player" id="music-player" hidden>
+
+      <div class="music-titlebar">
+        <span>♫ our_song.mp3</span>
+
+        <button
+          type="button"
+          id="music-minimize"
+          class="music-minimize"
+          aria-label="minimize music player"
+        >×</button>
+      </div>
+
+      <div class="music-content">
+
+        <div class="music-track">
+
+          <div class="music-disc" id="music-disc">
+            <div class="music-disc-center">♡</div>
+          </div>
+
+          <div class="music-track-info">
+            <div class="music-now-playing">
+              ♫ now playing
+            </div>
+
+            <div class="music-song-title">
+              seoul chaos
+            </div>
+
+            <div class="music-artist">
+              t.o.p ♡
+            </div>
+          </div>
+
+        </div>
+
+        <div class="music-progress-row">
+
+          <span id="music-current-time">0:00</span>
+
+          <input
+            type="range"
+            id="music-progress"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="song progress"
+          >
+
+          <span id="music-duration">0:00</span>
+
+        </div>
+
+        <div class="music-controls">
+
+          <button
+            type="button"
+            id="music-play"
+            class="music-control-button music-play-button"
+            aria-label="play music"
+          >▶</button>
+
+          <button
+            type="button"
+            id="music-loop"
+            class="music-control-button active"
+            aria-label="toggle repeat"
+            aria-pressed="true"
+          >↻</button>
+
+          <span class="music-volume-icon">♫</span>
+
+          <input
+            type="range"
+            id="music-volume"
+            min="0"
+            max="100"
+            value="45"
+            aria-label="music volume"
+          >
+
+        </div>
+
+        <p id="music-status" class="music-status">
+          a little song just for you ♡
+        </p>
+
+      </div>
+    </div>
+
+    <!-- minimized player button -->
+
+    <button
+      type="button"
+      class="music-mini-button"
+      id="music-restore"
+      aria-label="open music player"
+      hidden
+    >
+      ♫ music ♡
+    </button>
+
+    <!-- actual audio -->
+
+    <audio id="background-music" preload="metadata" loop>
+      <source
+        src="song/T.O.P 'SEOUL CHAOS' Lyrics (탑 서울시에 사는 기분 가사) [Color Coded Han_Rom_Eng] ShadowByYoongi.mp3"
+        type="audio/mpeg"
+      >
+    </audio>
+
+    <!-- =====================================
+         heart effects
+    ====================================== -->
+
+    <div id="heart-container" aria-hidden="true"></div>
+
+    <!-- =====================================
+         bunni companion
+    ====================================== -->
+
+    <div class="bunny-companion" id="bunny-companion">
+
+      <div
+        class="bunny-dialogue"
+        id="bunny-dialogue"
+        role="region"
+        aria-label="bunni's dialogue"
+        hidden
+      >
+
+        <div class="bunny-dialogue-header">
+
+          <span>♡ bunni.exe</span>
+
+          <button
+            class="bunny-dialogue-close"
+            id="bunny-dialogue-close"
+            aria-label="close dialogue"
+          >×</button>
+
+        </div>
+
+        <div class="bunny-dialogue-content">
+
+          <div class="bunny-name">
+            ♡ bunni says:
+          </div>
+
+          <p id="bunny-dialogue-text" aria-live="polite">
+            cameron!! you're finally here!
+            ezra told me to wait for you ♡
+          </p>
+
+          <div class="bunny-questions" id="bunny-questions">
+
+            <button class="bunny-option" data-question="love">
+              ♡ how much does ezra love me?
+            </button>
+
+            <button class="bunny-option" data-question="miss">
+              ♡ does ezra miss me?
+            </button>
+
+            <button class="bunny-option" data-question="wish">
+              ♡ what does ezra wish for?
+            </button>
+
+          </div>
+
+          <button
+            class="bunny-back"
+            id="bunny-back"
+            hidden
+          >
+            ← ask something else ♡
+          </button>
+
+        </div>
+      </div>
+
+      <button
+        id="bunny-button"
+        class="bunny-button"
+        aria-label="talk to bunni"
+      >
+
+        <img
+          src="icons/bunny-awake.png"
+          id="bunny-sprite"
+          alt="a little pixel bunny"
+        >
+
+      </button>
+
+    </div>
+
+    <!-- =====================================
+         taskbar
+    ====================================== -->
+
+    <footer class="taskbar">
+
+      <button class="start-button" id="start-button">
+        ♡ start
+      </button>
+
+      <span class="taskbar-label">
+        ♡ love.exe
+      </span>
+
+      <span class="taskbar-clock">
+        ♡ 11:11
+      </span>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
